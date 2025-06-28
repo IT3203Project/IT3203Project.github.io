@@ -86,6 +86,7 @@ section {
 /* Keep image within container */
 img {
     max-width: 100%;
+    justify-content: center;
 }
 
 /* Table */
