@@ -1,0 +1,135 @@
+/* Page Styling */
+* {
+    box-sizing: border-box;
+}
+
+/* Name Selector */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f7f9fc;
+    color: #222;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background: linear-gradient(to right, #02410c, #21c529);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px;
+}
+
+header h1,
+header h2,
+header h3,
+header h4 {
+    color: white;
+    margin: 5px 0;
+}
+
+
+/* Navigation Bar */
+nav {    
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 6px;
+}
+
+/* Class Selector */
+.menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    max-width: 1000px;
+}
+
+/* Create Hover Effects For Links */
+.menu a:hover {
+    background-color: rgba(105, 212, 11, 0.63);
+    color: #fff;
+}
+
+/* Section Styling */
+section {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px;
+    margin: 30px auto;
+    padding: 30px;
+    width: 100%;
+}
+
+/* Keep image within container */
+img {
+    max-width: 100%;
+}
+
+/* Table */
+.table-responsive {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+}
+
+/* ID Selector and Table Styling*/
+#terms {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    box-shadow: 0 2px 5px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #21c529;
+    color: white;
+    font-weight: bold;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #21c529;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    background-color: rgba(26, 57, 5, 0.36);
+    color: #fff;
+}
