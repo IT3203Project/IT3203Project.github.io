@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DNS Quiz</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+        <header>
+            <h1>DNS Quiz</h1>
+        </header>
+
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="mechanics.html">Mechanics</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="future.html">Future</a></li>
+                <li><a href="references.html">Resources</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section>
+                <form id="quizForm">
+                    <div class="question">
+                        <p>1. This is question one</p>
+                        <label><input type="radio" name="q1" value="a"> A</label><br>
+                        <label><input type="radio" name="q1" value="b"> B</label><br>
+                        <label><input type="radio" name="q1" value="c"> C</label><br>
+                        <label><input type="radio" name="q1" value="d"> D</label>
+                    </div>
+
+                    <div class="question">
+                        <p>2. This is question number two</p>
+                        <label><input type="radio" name="q2" value="a"> A</label><br>
+                        <label><input type="radio" name="q2" value="b"> B</label><br>
+                        <label><input type="radio" name="q2" value="c"> C</label><br>
+                        <label><input type="radio" name="q2" value="d"> D</label>
+                    </div>
+
+                    <div class="question">
+                        <p>3. This is question number three</p>
+                        <label><input type="radio" name="q3" value="a"> A</label><br>
+                        <label><input type="radio" name="q3" value="b"> B</label><br>
+                        <label><input type="radio" name="q3" value="c"> C</label><br>
+                        <label><input type="radio" name="q3" value="d"> D</label>
+                    </div>
+
+                    <div class="question">
+                        <p>4. Fill in the blank: The _____ must be filled in.</p>
+                        <input type="text" name="q4" placeholder="Your answer">
+                    </div>
+
+                    <!-- *****You need to change the values for this question***** -->
+                    <div class="question">
+                        <p>5. Select all that apply: This is question number five</p>
+                        <label><input type="checkbox" name="q5" value="">First choice</label><br>
+                        <label><input type="checkbox" name="q5" value="">Second choice</label><br>
+                        <label><input type="checkbox" name="q5" value="">Third choice</label><br>
+                        <label><input type="checkbox" name="q5" value="">Fourth choice</label>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" onclick="gradeQuiz()">Submit</button>
+                        <button type="button" onclick="restartQuiz()">Restart</button>
+                    </div>
+                </form>
+
+                <div id="results" class="result" style="display:none;"></div>
+            </section>
+        </main>
+
+        <script>
+            function gradeQuiz() {
+                let score = 0;
+                const total = 5;
+                const answers = {
+                    q1: "b", // B
+                    q2: "c", // C
+                    q3: "b", // B
+                    q4: "yourAnswer",
+                    q5: ["answer1", "answer2", "answer3"]
+                };
+
+                const results = [];
+
+                const q1 = document.querySelector('input[name="q1"]:checked');
+                if (q1 && q1.value === answers.q1) {
+                    score++;
+                    results.push("1. Correct");
+                } else {
+                    results.push("1. Incorrect (Correct: B)");
+                }
+
+                const q2 = document.querySelector('input[name="q2"]:checked');
+                if (q2 && q2.value === answers.q2) {
+                    score++;
+                    results.push("2. Correct");
+                } else {
+                    results.push("2. Incorrect (Correct: B)");
+                }
+
+                const q3 = document.querySelector('input[name="q3"]:checked');
+                if (q3 && q3.value === answers.q3) {
+                    score++;
+                    results.push("3. Correct");
+                } else {
+                    results.push("3. Incorrect (Correct: B)");
+                }
+
+                const q4 = document.querySelector('input[name="q4"]').value.trim().toLowerCase();
+                if (q4 === answers.q4) {
+                    score++;
+                    results.push("4. Correct");
+                } else {
+                    results.push("4. Incorrect (Correct: answer)");
+                }
+
+                const q5Selected = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(cb => cd.value);
+                const q5Correct = answers.q5;
+                const q5Match = q5Selected.length === q5Correct.length &&
+                                q5Selected.every(val => q5Correct.includes(val));
+                if (q5Match) {
+                    score++;
+                    results.push("5. Correct");
+                } else {
+                    results.push("5. Incorrect (Correct: this, this, that)");
+                }
+
+                const pass = score >= 3;
+
+                const resultDiv = document.getElementById("results");
+                resultDiv.innerHTML = `
+                    <p>Results</p>
+                    <p>Score: ${score}/${total}</p>
+                    <ul>${results.map(r => `<li>${r}</li>`).join('')}</ul>
+                    <p>Status: ${pass ? "<span style='color:green;'>Pass</span>" : "<span style='color:red;'>Fail</span>"}</p>
+                `;
+                resultDiv.className = pass ? "result" : "result fail";
+                resultDiv.style.display = "block"
+
+            }
+
+            function restartQuiz() {
+                document.getElementById("quizForm").reset();
+                document.getElementById("results").style.display = "none";
+            }
+            
+        </script>
+        </div>
+    </body>
+
+    
+</html>
