@@ -134,3 +134,21 @@ footer a:hover {
     background-color: rgba(26, 57, 5, 0.36);
     color: #fff;
 }
+
+/* Quiz Styling */
+.question {
+    margin-bottom: 20px;
+}
+
+.result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #e9f7ef;
+    border: 1px solid #2ecc71;
+    border-radius: 8px;
+}
+
+.fail {
+    background: #fdecea;
+    border-color: #e74c3c;
+}
