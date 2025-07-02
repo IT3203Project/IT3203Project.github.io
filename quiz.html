@@ -27,6 +27,7 @@
         <main>
             <section>
                 <form id="quizForm">
+                    <!-- Multiple Choice Questions -->
                     <div class="question">
                         <p>1. This is question one</p>
                         <label><input type="radio" name="q1" value="a"> A</label><br>
@@ -51,10 +52,13 @@
                         <label><input type="radio" name="q3" value="d"> D</label>
                     </div>
 
+                    <!-- Fill in the blank question -->
                     <div class="question">
                         <p>4. Fill in the blank: The _____ must be filled in.</p>
                         <input type="text" name="q4" placeholder="Your answer">
                     </div>
+
+                    <!-- Multiple correct answers (checkboxes) -->
 
                     <!-- *****You need to change the values for this question***** -->
                     <div class="question">
@@ -65,30 +69,37 @@
                         <label><input type="checkbox" name="q5" value="">Fourth choice</label>
                     </div>
 
+                    <!-- Buttons to submit and restart quiz -->
                     <div class="buttons">
                         <button type="button" onclick="gradeQuiz()">Submit</button>
                         <button type="button" onclick="restartQuiz()">Restart</button>
                     </div>
                 </form>
 
+                <!-- This will show score and feedback (Hidden Initially) -->
                 <div id="results" class="result" style="display:none;"></div>
             </section>
         </main>
 
+        <!-- JavaScript functions-->
         <script>
             function gradeQuiz() {
                 let score = 0;
                 const total = 5;
+                
+                //Correct answers stored in an object
                 const answers = {
                     q1: "b", // B
                     q2: "c", // C
                     q3: "b", // B
-                    q4: "yourAnswer",
-                    q5: ["answer1", "answer2", "answer3"]
+                    q4: "yourAnswer", // Fill-in-the-blank
+                    q5: ["answer1", "answer2", "answer3"] // Multi-select
                 };
 
+                // Array to collect feedback for each question
                 const results = [];
 
+                // Check Question 1
                 const q1 = document.querySelector('input[name="q1"]:checked');
                 if (q1 && q1.value === answers.q1) {
                     score++;
@@ -97,6 +108,7 @@
                     results.push("1. Incorrect (Correct: B)");
                 }
 
+                // Check Question 2
                 const q2 = document.querySelector('input[name="q2"]:checked');
                 if (q2 && q2.value === answers.q2) {
                     score++;
@@ -105,6 +117,7 @@
                     results.push("2. Incorrect (Correct: B)");
                 }
 
+                // Check Question 3
                 const q3 = document.querySelector('input[name="q3"]:checked');
                 if (q3 && q3.value === answers.q3) {
                     score++;
@@ -113,6 +126,7 @@
                     results.push("3. Incorrect (Correct: B)");
                 }
 
+                // Check Question 4 (fill in blank, ignore case/whitespace)
                 const q4 = document.querySelector('input[name="q4"]').value.trim().toLowerCase();
                 if (q4 === answers.q4) {
                     score++;
@@ -121,6 +135,7 @@
                     results.push("4. Incorrect (Correct: answer)");
                 }
 
+                // Check Question 5 (multi-select)
                 const q5Selected = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(cb => cd.value);
                 const q5Correct = answers.q5;
                 const q5Match = q5Selected.length === q5Correct.length &&
@@ -132,8 +147,10 @@
                     results.push("5. Incorrect (Correct: this, this, that)");
                 }
 
+                // Determine if a user passed (score >= 3 out of 5)
                 const pass = score >= 3;
 
+                // Display the result section with score and breakdown
                 const resultDiv = document.getElementById("results");
                 resultDiv.innerHTML = `
                     <p>Results</p>
@@ -147,6 +164,7 @@
             }
 
             function restartQuiz() {
+                // Reset the form and hide the results
                 document.getElementById("quizForm").reset();
                 document.getElementById("results").style.display = "none";
             }
