@@ -29,44 +29,42 @@
                 <form id="quizForm">
                     <!-- Multiple Choice Questions -->
                     <div class="question">
-                        <p>1. This is question one</p>
-                        <label><input type="radio" name="q1" value="a"> A</label><br>
-                        <label><input type="radio" name="q1" value="b"> B</label><br>
-                        <label><input type="radio" name="q1" value="c"> C</label><br>
-                        <label><input type="radio" name="q1" value="d"> D</label>
+                        <p>1. What does DNS stand for?</p>
+                        <label><input type="radio" name="q1" value="a"> Domain Name Services</label><br>
+                        <label><input type="radio" name="q1" value="b"> Domain Name System</label><br>
+                        <label><input type="radio" name="q1" value="c"> Dark Net Security</label><br>
+                        <label><input type="radio" name="q1" value="d"> Development Nesting System</label>
                     </div>
 
                     <div class="question">
-                        <p>2. This is question number two</p>
-                        <label><input type="radio" name="q2" value="a"> A</label><br>
-                        <label><input type="radio" name="q2" value="b"> B</label><br>
-                        <label><input type="radio" name="q2" value="c"> C</label><br>
-                        <label><input type="radio" name="q2" value="d"> D</label>
+                        <p>2. Before DNS, to which file were hostnames and addresses added?</p>
+                        <label><input type="radio" name="q2" value="a"> ADDRESSES.TXT</label><br>
+                        <label><input type="radio" name="q2" value="b"> NAMES.TXT</label><br>
+                        <label><input type="radio" name="q2" value="c"> HOSTS.TXT</label><br>
+                        <label><input type="radio" name="q2" value="d"> DOMAINS.TXT</label>
                     </div>
 
                     <div class="question">
-                        <p>3. This is question number three</p>
-                        <label><input type="radio" name="q3" value="a"> A</label><br>
-                        <label><input type="radio" name="q3" value="b"> B</label><br>
-                        <label><input type="radio" name="q3" value="c"> C</label><br>
-                        <label><input type="radio" name="q3" value="d"> D</label>
+                        <p>3. DNS amplification is a type of:</p>
+                        <label><input type="radio" name="q3" value="a"> Cache Poisoning</label><br>
+                        <label><input type="radio" name="q3" value="b"> DDoS attack</label><br>
+                        <label><input type="radio" name="q3" value="c"> DNS Protocol</label><br>
+                        <label><input type="radio" name="q3" value="d"> Encryption Process</label>
                     </div>
 
                     <!-- Fill in the blank question -->
                     <div class="question">
-                        <p>4. Fill in the blank: The _____ must be filled in.</p>
+                        <p>4. Fill in the blank: Any future enhancements to the DNS protocol are likely to center around strengthening its _____.</p>
                         <input type="text" name="q4" placeholder="Your answer">
                     </div>
 
-                    <!-- Multiple correct answers (checkboxes) -->
-
-                    <!-- *****You need to change the values for this question***** -->
+                    <!-- Multiple correct answers (checkboxes) -->            
                     <div class="question">
-                        <p>5. Select all that apply: This is question number five</p>
-                        <label><input type="checkbox" name="q5" value="">First choice</label><br>
-                        <label><input type="checkbox" name="q5" value="">Second choice</label><br>
-                        <label><input type="checkbox" name="q5" value="">Third choice</label><br>
-                        <label><input type="checkbox" name="q5" value="">Fourth choice</label>
+                        <p>5. Which of the following are servers used with DNS. Select all that apply:</p>
+                        <label><input type="checkbox" name="q5" value="">Root Nameserver</label><br>
+                        <label><input type="checkbox" name="q5" value="">Common Nameserver</label><br>
+                        <label><input type="checkbox" name="q5" value="">Authoritative Nameserver</label><br>
+                        <label><input type="checkbox" name="q5" value="">TLD Nameserver</label>
                     </div>
 
                     <!-- Buttons to submit and restart quiz -->
@@ -92,8 +90,8 @@
                     q1: "b", // B
                     q2: "c", // C
                     q3: "b", // B
-                    q4: "yourAnswer", // Fill-in-the-blank
-                    q5: ["answer1", "answer2", "answer3"] // Multi-select
+                    q4: "Security", // Fill-in-the-blank
+                    q5: ["Root Nameserver", "TLD Nameserver", "Authoritative Nameserver"] // Multi-select
                 };
 
                 // Array to collect feedback for each question
@@ -105,7 +103,7 @@
                     score++;
                     results.push("1. Correct");
                 } else {
-                    results.push("1. Incorrect (Correct: B)");
+                    results.push("1. Incorrect (Correct: Domain Name System)");
                 }
 
                 // Check Question 2
@@ -114,7 +112,7 @@
                     score++;
                     results.push("2. Correct");
                 } else {
-                    results.push("2. Incorrect (Correct: B)");
+                    results.push("2. Incorrect (Correct: HOSTS.TXT)");
                 }
 
                 // Check Question 3
@@ -123,7 +121,7 @@
                     score++;
                     results.push("3. Correct");
                 } else {
-                    results.push("3. Incorrect (Correct: B)");
+                    results.push("3. Incorrect (Correct: DDoS Attack)");
                 }
 
                 // Check Question 4 (fill in blank, ignore case/whitespace)
@@ -132,7 +130,7 @@
                     score++;
                     results.push("4. Correct");
                 } else {
-                    results.push("4. Incorrect (Correct: answer)");
+                    results.push("4. Incorrect (Correct: Security)");
                 }
 
                 // Check Question 5 (multi-select)
@@ -144,7 +142,7 @@
                     score++;
                     results.push("5. Correct");
                 } else {
-                    results.push("5. Incorrect (Correct: this, this, that)");
+                    results.push("5. Incorrect (Correct: Root Nameserver, Authoritative Nameserver, TLD Nameserver)");
                 }
 
                 // Determine if a user passed (score >= 3 out of 5)
