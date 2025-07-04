@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,10 +61,10 @@
                     <!-- Multiple correct answers (checkboxes) -->            
                     <div class="question">
                         <p>5. Which of the following are servers used with DNS. Select all that apply:</p>
-                        <label><input type="checkbox" name="q5" value="">Root Nameserver</label><br>
-                        <label><input type="checkbox" name="q5" value="">Common Nameserver</label><br>
-                        <label><input type="checkbox" name="q5" value="">Authoritative Nameserver</label><br>
-                        <label><input type="checkbox" name="q5" value="">TLD Nameserver</label>
+                        <label><input type="checkbox" name="q5" value="Root Nameserver">Root Nameserver</label><br>
+                        <label><input type="checkbox" name="q5" value="Common Nameserver">Common Nameserver</label><br>
+                        <label><input type="checkbox" name="q5" value="Authoritative Nameserver">Authoritative Nameserver</label><br>
+                        <label><input type="checkbox" name="q5" value="TLD Nameserver">TLD Nameserver</label>
                     </div>
 
                     <!-- Buttons to submit and restart quiz -->
@@ -90,7 +90,7 @@
                     q1: "b", // B
                     q2: "c", // C
                     q3: "b", // B
-                    q4: "Security", // Fill-in-the-blank
+                    q4: "security", // Fill-in-the-blank
                     q5: ["Root Nameserver", "TLD Nameserver", "Authoritative Nameserver"] // Multi-select
                 };
 
@@ -125,16 +125,22 @@
                 }
 
                 // Check Question 4 (fill in blank, ignore case/whitespace)
-                const q4 = document.querySelector('input[name="q4"]').value.trim().toLowerCase();
-                if (q4 === answers.q4) {
-                    score++;
-                    results.push("4. Correct");
+                const q4Input = document.querySelector('input[name="q4"]');                
+                
+                if (q4Input && q4Input.value.trim() !== "") {
+                    const q4 = q4Input.value.trim().toLowerCase();
+                    if (q4 === answers.q4) {
+                        score++;
+                        results.push("4. Correct");   
                 } else {
                     results.push("4. Incorrect (Correct: Security)");
-                }
+                }    
+            } else {
+                results.push("4. No answer provided (Correct: Security)");
+            }
 
                 // Check Question 5 (multi-select)
-                const q5Selected = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(cb => cd.value);
+                const q5Selected = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(cb => cb.value);
                 const q5Correct = answers.q5;
                 const q5Match = q5Selected.length === q5Correct.length &&
                                 q5Selected.every(val => q5Correct.includes(val));
@@ -157,7 +163,7 @@
                     <p>Status: ${pass ? "<span style='color:green;'>Pass</span>" : "<span style='color:red;'>Fail</span>"}</p>
                 `;
                 resultDiv.className = pass ? "result" : "result fail";
-                resultDiv.style.display = "block"
+                resultDiv.style.display = "block";
 
             }
 
