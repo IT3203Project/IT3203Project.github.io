@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>The Domain Name System</title>
-     <link rel="stylesheet" href="styles.css">   
+     <link rel="stylesheet" href="styles.css">
+     <!-- Icon Library for hamburger menu-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     </head>
     <body>
     <div class="container">
@@ -17,6 +19,7 @@
         </header>
 
         <!-- Table of Contents-->
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776</button>
         <nav>
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
@@ -80,5 +83,14 @@
 
 
        </div>
+
+       <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.menu');
+
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+            });
+        </script>
     </body>
 </html>

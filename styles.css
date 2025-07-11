@@ -3,6 +3,7 @@
     box-sizing: border-box;
 }
 
+
 /* Name Selector */
 body {
     font-family: Arial, sans-serif;
@@ -87,6 +88,7 @@ section {
 /* Keep image within container */
 img {
     max-width: 100%;
+    height: auto;
     justify-content: center;
 }
 
@@ -152,4 +154,98 @@ footer a:hover {
 .fail {
     background: #fdecea;
     border-color: #e74c3c;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: black;
+    display: none;
+    cursor: pointer;
+}
+
+/* Media Queries */
+
+/* Phones */
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    form input, form select, form textarea, form button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+
+    .menu a {
+        width: 100%;
+        padding: 12px;
+        border-top: 1px solid #555;
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .container {
+        padding: 15px 30px;
+    }
+
+    form input, form select, form textarea {
+        width: 100%;
+    }
+}
+
+/* Desktops */
+@media screen  and (min-width: 1025px) {
+    nav {
+        justify-content: space-around;
+    }
+
+    .container {
+        padding: 20px 60px;
+    }
+
+    form input, form select, form textarea {
+        width: 50%;
+    }
+    
 }
