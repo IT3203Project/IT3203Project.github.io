@@ -28,7 +28,29 @@
             <section>
                 <h3>The History of DNS</h3>
                 <p>
-                    This will be information about the history of DNS
+                  In the early days of the Internet, the process of assigning addresses was manual. 
+                  “Computers and their associated hostnames and addresses were added to the HOSTS.TXT file by contacting the SRI Network Information Center”(Petrova, 2025). 
+                  HOSTS.TXT was a single file managed by Stanford Research Institute’s (SRI) Network Information Center (NIC). 
+                  It contained a name to address mapping for every host connected to the ARPAnet (a precursor to the Internet). 
+                  HOSTS.TXT was distributed from a single host (SRI-NIC), and ARPAnet administrators could email their changes to the NIC and periodically grab a current version of HOSTS.TXT, which was typically updated once or twice a week, via ftp (O'Reilly, n.d.). 
+                  As the network grew, this method of managing hostnames became untenable. 
+                  Not only did the host file continue to grow, but so did the amount of traffic accessing it.   
+                </p>
+
+                <p>
+                   In 1983, Paul Mockapetris began the process of creating a decentralized model that would still let people use names for network resources, 
+                   but would be organized in such a way that would “ensure the system could accommodate diversity without unnecessary restriction” (Petrova, 2025). 
+                   He published his findings in RFC 882, which “introduces domain style names, their use for ARPA Internet mail and host address support, 
+                   and the protocols and servers used to implement domain name facilities” (Mockapetris, 1983).
+                   These concepts were expanded upon in RFC 1034 and RFC 1035, which were published in 1987 and are widely considered the foundational documents of the Domain Name System (Petrova, 2025). 
+                </p>
+
+                <p>
+                  In RFC 1034, Mockapetris describes how the Internet’s rapid growth created the need for the DNS protocol. 
+                  “The sheer size of the database and frequency of updates,” he writes in reference to the aforementioned HOSTS.TXT file, 
+                  “suggest that it must be maintained in a distributed manner, with local caching to improve performance (Mockapetris, 1987). 
+                  “Approaches that attempt to collect a consistent copy of the entire database,” he goes on to say, 
+                  “will become more and more expensive and difficult, and hence should be avoided (Mockapetris, 1987). 
                 </p>
             </section>
 

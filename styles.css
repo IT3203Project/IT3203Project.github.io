@@ -81,8 +81,14 @@ section {
     border-radius: 10px;
     box-shadow: 0 3px 10px;
     margin: 30px auto;
+    margin-bottom: 30px;
     padding: 30px;
     width: 100%;
+}
+
+section p {
+    text-indent: 1.5em;
+    margin-bottom: 16px;
 }
 
 /* Keep image within container */
@@ -136,6 +142,22 @@ footer a {
 footer a:hover {
     background-color: rgba(26, 57, 5, 0.36);
     color: #fff;
+}
+
+/* Reference Page Formatting */
+ul {
+    list-style-type: none;
+    padding-left: 0;    
+}
+
+ul li {
+    padding-left: 20px;
+    text-indent: -20px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 /* Quiz Styling */
@@ -230,13 +252,19 @@ footer a:hover {
     .menu a {
         width: 100%;
         padding: 12px;
-        border-top: 1px solid #555;
+       
     }
 
     .question label.answer {
         flex-wrap: wrap;
         font-size: 16px;
         margin-left: 10px;
+    }
+
+    ul li {
+        padding-left: 16px;
+        text-indent: -16px;
+        font-size: 16px;
     }
 }
 

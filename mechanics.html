@@ -28,7 +28,38 @@
             <section>
                 <h3>How DNS Works</h3>
                 <p>
-                    This will be a description of how DNS works.
+                   Having clearly established the need for the Domain Name System, it now becomes necessary to understand how DNS works. 
+                   To understand this process, it is important to understand the four different servers involved in loading a webpage. 
+                   These include the DNS recursor, the root nameserver, the top-level domain (TLD) nameserver, and the authoritative nameserver (Cloudflare, a, n.d.). 
+                   A DNS query is usually initiated by a user’s web browser. To resolve a domain name to an IP address, the browser first checks its cache to see if it already knows the IP address for the desired destination. 
+                   If the IP address is not stored in cache memory, the browser reaches out to the resolver. The resolver then reaches out to the root server, the TLD server, 
+                   and the authoritative nameserver in succession. After obtaining the IP address from the authoritative nameserver, it passes the IP address back to the browser, 
+                   which can then initiate the connection with the web server. 
+                </p>
+
+                <p>
+                   The resolver, also known as the recursive resolver, is the first stop in a DNS query and acts as a middleman between a client and a DNS nameserver (Cloudflare, b, n.d.). 
+                   The resolver receives the DNS query from the web client and either responds with cached data or sends a request to the root nameserver (Cloudflare, b, n.d.). 
+                   Most Internet users use a recursive resolver provided by their ISP.  
+                </p>
+
+                <p>
+                   The root nameserver is one of 13 servers known to every recursive resolver. This nameserver receives the DNS query from the recursive resolver, examines the domain name, 
+                   and directs the resolver to the appropriate TLD nameserver based on the domain’s extension (Cloudflare, b, n.d.). 
+                   The root nameservers are overseen by the Internet Corporation for Assigned Names and Numbers (ICANN). 
+                </p>
+
+                <p>
+                   After getting a response from the root nameserver, the recursor reaches out to the appropriate TLD nameserver. 
+                   A TLD nameserver “maintains information for all the domain names that share a common domain extension, such as .com, or .net” (Cloudflare, b, n.d.). 
+                   These servers are managed by the Internet Assigned Numbers Authority (IANA), which breaks the server into two main groups including generic top-level domains and country code top-level domains (Cloudflare, b, n.d.). 
+                   It is the TLD nameserver’s job to direct the resolver to the appropriate authoritative nameserver for the desired domain.
+                </p>
+
+                <p>
+                   Authoritative nameservers represent the last stop on the resolver’s quest to locate an IP address. 
+                   These servers contain “information specific to the domain name it serves and can provide a recursive resolver with the IP address of that server found in the DNS A record” (Cloudflare, b, n.d.). 
+                   The resolver can now pass the IP address along to the web client, which can initiate the connection with the web server.
                 </p>
             </section>
 

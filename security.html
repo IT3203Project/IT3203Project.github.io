@@ -28,8 +28,32 @@
             <section>
                 <h3>DNS Security Vulnerabilities</h3>
                 <p>
-                    This will be a description of the security vulnerabilities
-                    of DNS
+                    Despite the important role DNS has played in expanding and navigating the Web, it has also created many security concerns. 
+                    The International Data Corporation (IDC) found that 79 percent of breaches involve the DNS layer, 85 percent of malware actors use DNS in the creation of attacks, 
+                    and 90 percent of organizations have experienced at least one DNS attack (Carnesi, 2024). 
+                </p>
+
+                <p>
+                    Some of the most common attacks on DNS include DNS spoofing, DNS amplification, DNS tunneling, and DNS hijacking (Palo Alto, n.d.). 
+                    DNS spoofing, also known as DNS cache poisoning, involves the manipulation of a DNS server’s cache to “redirect traffic from a legitimate website to an imposter site” (Palo Alto, n.d.). 
+                    This is done by sending fake responses to the DNS server and tricking it into caching the wrong IP address. 
+                    DNS amplification is a type of distributed denial of service (DDoS) attack that involves sending DNS queries to an open resolver using a spoofed IP address. 
+                    This causes the resolver to send a response much larger than the original query. When multiple resolvers are used, the target server can quickly become overwhelmed with traffic (Palo Alto, n.d.). 
+                    DNS tunneling involves the use of DNS to bypass firewalls and exfiltrate data from a compromised network, and DNS hijacking occurs when an attacker steals login credentials or exploits a vulnerability to gain control of the domain name (Palo Alto, n.d.).
+                </p>
+
+                <p>
+                    Privacy is also a major concern when dealing with the DNS protocol. By default, DNS queries are made in clear text, which means that anyone who can intercept this traffic will be able to inspect it. 
+                    This includes potential eavesdroppers as well as the system that hosts the application making the DNS query, the recursive resolver that receives the query, 
+                    and any forwarding agent used by the recursive resolver (Huston, 2024). To combat this issue, encrypted versions of DNS have been developed including DNS over TLS (DoT) and DNS over HTTPS (DoH). 
+                    These protocols “offer a secure and encrypted way to send DNS requests, so that users can be sure their data is safe and secure (Petrova, b 2025).
+                </p>
+
+                <p>
+                    Another concern of the DNS protocol is authenticity.
+                    DNSSEC, an extension to DNS, attempts to prevent attacks that use forged DNS records by associating
+                     “a cryptographically generated digital signature with each record in a DNSSEC-signed zone” (Huston, 2024). 
+                    This is designed to establish a chain of trust that allows client computers to validate a DNS response. 
                 </p>
             </section>
 
